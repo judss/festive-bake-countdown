@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
     
     function display_date() {
         var date_now     = new Date();
-        var date_festive = new Date("Thurs Nov 10 2022 00:00:00 GMT+0000");
+        var date_festive = new Date(2026, 11, 25, 0, 0, 0);
         
         var seconds = ((date_festive - date_now) / 1000);
         var days    = Math.floor(seconds / 86400).toString();
@@ -31,7 +31,10 @@ jQuery(document).ready(function() {
         var minutes = Math.floor((seconds - (days * 86400) - (hours * 3600)) / 60).toString();
         var seconds = Math.floor((seconds - (days * 86400) - (hours * 3600) - (minutes * 60))).toString();
         
-        if(days.length < 2) {
+        if(days.length < 3) {
+            days = "0" + days;
+        }
+        if(days.length < 3) {
             days = "0" + days;
         }
         
@@ -54,6 +57,7 @@ jQuery(document).ready(function() {
         
         jQuery(".sd1").html('<img src="index_files/img/FB_' + days_split[0] + '.png" />');
         jQuery(".sd2").html('<img src="index_files/img/FB_' + days_split[1] + '.png" />');
+        jQuery(".sd3").html('<img src="index_files/img/FB_' + days_split[2] + '.png" />');
         
         jQuery(".sh1").html('<img src="index_files/img/FB_' + hours_split[0] + '.png" />');
         jQuery(".sh2").html('<img src="index_files/img/FB_' + hours_split[1] + '.png" />');
