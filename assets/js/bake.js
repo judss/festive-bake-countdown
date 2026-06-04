@@ -59,18 +59,18 @@ jQuery(document).ready(function() {
         var minutes_split = minutes.split('');
         var seconds_split = seconds.split('');
         
-        jQuery(".sd1").html('<img src="index_files/img/FB_' + days_split[0] + '.png" />');
-        jQuery(".sd2").html('<img src="index_files/img/FB_' + days_split[1] + '.png" />');
-        jQuery(".sd3").html('<img src="index_files/img/FB_' + days_split[2] + '.png" />');
+        jQuery(".sd1").html('<img src="assets/img/FB_' + days_split[0] + '.png" />');
+        jQuery(".sd2").html('<img src="assets/img/FB_' + days_split[1] + '.png" />');
+        jQuery(".sd3").html('<img src="assets/img/FB_' + days_split[2] + '.png" />');
         
-        jQuery(".sh1").html('<img src="index_files/img/FB_' + hours_split[0] + '.png" />');
-        jQuery(".sh2").html('<img src="index_files/img/FB_' + hours_split[1] + '.png" />');
+        jQuery(".sh1").html('<img src="assets/img/FB_' + hours_split[0] + '.png" />');
+        jQuery(".sh2").html('<img src="assets/img/FB_' + hours_split[1] + '.png" />');
         
-        jQuery(".sm1").html('<img src="index_files/img/FB_' + minutes_split[0] + '.png" />');
-        jQuery(".sm2").html('<img src="index_files/img/FB_' + minutes_split[1] + '.png" />');
+        jQuery(".sm1").html('<img src="assets/img/FB_' + minutes_split[0] + '.png" />');
+        jQuery(".sm2").html('<img src="assets/img/FB_' + minutes_split[1] + '.png" />');
         
-        jQuery(".ss1").html('<img src="index_files/img/FB_' + seconds_split[0] + '.png" />');
-        jQuery(".ss2").html('<img src="index_files/img/FB_' + seconds_split[1] + '.png" />');
+        jQuery(".ss1").html('<img src="assets/img/FB_' + seconds_split[0] + '.png" />');
+        jQuery(".ss2").html('<img src="assets/img/FB_' + seconds_split[1] + '.png" />');
 
         if(minutes == "00" && seconds == "00"){
             playTurnip();
@@ -79,7 +79,7 @@ jQuery(document).ready(function() {
 
     function playTurnip(){
         console.log("playing turnip");
-        var turnip = new Audio('index_files/turnip.m4a');
+        var turnip = new Audio('assets/turnip.m4a');
         turnip.loop = false;
         turnip.play();
     }
