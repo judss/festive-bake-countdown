@@ -23,7 +23,11 @@ jQuery(document).ready(function() {
     
     function display_date() {
         var date_now     = new Date();
-        var date_festive = new Date(2026, 11, 25, 0, 0, 0);
+        var year = date_now.getFullYear();
+        var date_festive = new Date(year, 10, 6, 0, 0, 0);
+        if (date_festive <= date_now) {
+            date_festive = new Date(year + 1, 10, 6, 0, 0, 0);
+        }
         
         var seconds = ((date_festive - date_now) / 1000);
         var days    = Math.floor(seconds / 86400).toString();
