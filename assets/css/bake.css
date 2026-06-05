@@ -1,10 +1,26 @@
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url("../fonts/barlow-condensed-100.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: optional;
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url("../fonts/barlow-condensed-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: optional;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: "acumin-pro", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     background-image: url("../img/FB_BG.webp");
     background-size: cover;
     background-position: center center;
@@ -37,7 +53,7 @@ body {
 /* "It's Only" / "Until the Festive Bake" */
 .t {
     color: #fff;
-    font-family: "acumin-pro-condensed", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(24px, 5vw, 80px);
     font-weight: 100;
     text-transform: uppercase;
