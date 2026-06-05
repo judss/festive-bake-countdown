@@ -1,26 +1,4 @@
-jQuery(document).ready(function() {
-   
-    function set_container_height() {
-        jQuery(".dt").css("height", jQuery(window).height() + "px");
-        jQuery(".dc").css("height", jQuery(window).height() + "px");
-    }
-   
-    set_container_height();
-   
-    jQuery(window).resize(function() {
-        set_container_height();
-    });
-
-    function setupTest(){
-        console.log("setting up test...");
-        jQuery(".t").on("click", function(){
-            playTurnip();
-        });
-    }
-
-    setupTest();
-    
-    
+jQuery(document).ready(function() {    
     function display_date() {
         var date_now     = new Date();
         var year = date_now.getFullYear();
@@ -78,7 +56,6 @@ jQuery(document).ready(function() {
     }
 
     function playTurnip(){
-        console.log("playing turnip");
         var turnip = new Audio('assets/turnip.m4a');
         turnip.loop = false;
         turnip.play();

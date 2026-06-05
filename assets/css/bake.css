@@ -1,12 +1,10 @@
-/*
-
-font-family: "acumin-pro",sans-serif;
-font-family: "acumin-pro-condensed",sans-serif;
-
-*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 body {
-    font-family: "acumin-pro",sans-serif;
+    margin: 0;
+    font-family: "acumin-pro", sans-serif;
     background-image: url("../img/FB_BG.png");
     background-size: cover;
     background-position: center center;
@@ -14,81 +12,106 @@ body {
     overflow: hidden;
 }
 
+/* Full-viewport centred wrapper */
 .dt {
-    display: table;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
+/* Max-width content column */
 .dc {
-    display: table-cell;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
     width: 100%;
-    height: 100%;
-    vertical-align: middle;
+    max-width: 1170px;
 }
 
-.ts {
-    width: 20%;
-    float: left;
-}
-
-.ts-days {
-    width: 30%;
-}
-
-.ts .ti {
-    float: left;
-    width: 50%;
-    padding: 10px;
-}
-
-.ts-days .ti {
-    width: 33.33%;
-}
-
-.ts .ti img {
-    width: 100%;
-    height: auto;
-}
-
-.c {
-    color: #FFFFFF;
-    font-size: 100px;
-    line-height: 100px;
-    float: left;
-    width: 2.6%;
-    padding-top: 60px;
-}
-
+/* "It's Only" / "Until the Festive Bake" */
 .t {
-    color: #FFFFFF;
-    font-size: 80px;
-    text-transform: uppercase;
-    font-family: "acumin-pro-condensed",sans-serif;
-    line-height: 90px;
+    color: #fff;
+    font-family: "acumin-pro-condensed", sans-serif;
+    font-size: clamp(24px, 5vw, 80px);
     font-weight: 100;
-    letter-spacing: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-align: center;
 }
 
 .t strong {
     font-weight: 600;
 }
 
-.l {
-    color: #FFFFFF;
-    font-size: 36px;
-    line-height: 40px;
-    margin-top: 15px;
-}
-
+/* Countdown row */
 #countdown {
-    margin: 80px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(4px, 1.5vw, 20px);
+    width: 100%;
 }
 
+/* Each time section */
+.ts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex: 2;
+}
+
+.ts-days {
+    flex: 3;
+}
+
+/* Row of digit images */
+.digits {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.ti {
+    flex: 1;
+    padding: clamp(2px, 0.5vw, 8px);
+}
+
+.ti img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Colon separator */
+.c {
+    color: #fff;
+    font-size: clamp(30px, 5vw, 100px);
+    line-height: 1;
+    flex-shrink: 0;
+    padding-bottom: 2em;
+}
+
+/* Days / hours / minutes / seconds label */
+.l {
+    color: #fff;
+    font-size: clamp(12px, 2vw, 36px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Snowflakes */
 #snowflakeContainer {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
+    pointer-events: none;
 }
 
 .snowflake {
@@ -97,7 +120,7 @@ body {
     font-size: 14px;
     line-height: 24px;
     position: fixed;
-    color: #FFFFFF;
+    color: #fff;
     user-select: none;
     z-index: 1000;
 }
@@ -106,92 +129,7 @@ body {
     cursor: default;
 }
 
-@media (min-width: 1600px) {
-    .container {
-        width: 1570px !important;
-    }
-}
-
-@media (max-width: 1600px) {
-    .c {
-        padding-top: 25px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .c {
-        padding-top: 28px;
-        font-size: 70px;
-        line-height: 70px;
-    }
-    
-    .l {
-        font-size: 26px;
-        line-height: 30px;
-    }
-    
-    .t {
-        font-size: 50px;
-        line-height: 60px;
-    }
-}
-
-@media (max-width: 991px) {
-    .c {
-        padding-top: 9px;
-    }
-    
-    .t {
-        font-size: 30px;
-        line-height: 40px;
-        letter-spacing: 6px;
-    }
-    
-    .l {
-        font-size: 20px;
-        line-height: 24px;
-    }
-}
-
-@media (max-width: 640px) {
-    .c {
-        font-size: 50px;
-        line-height: 40px;
-        padding-top: 19px;
-    }
-    
-    .l {
-        font-size: 16px;
-        line-height: 18px;
-    }
-}
-
-@media (max-width: 640px) {
-    .c {
-        padding-top: 9px;
-    }
-}
-
-@media (max-width: 460px) {
-    .c {
-        font-size: 30px;
-        line-height: 20px;
-        padding-top: 15px;
-    }
-    
-    .t {
-        font-size: 24px;
-        line-height: 30px;
-        letter-spacing: 4px;
-    }
-}
-
-@media (max-width: 390px) {
-    .c {
-        padding-top: 10px;
-    }
-}
-
+/* GitHub link */
 #github-link {
     position: fixed;
     bottom: 20px;
@@ -208,5 +146,21 @@ body {
 #github-link svg {
     width: 32px;
     height: 32px;
-    fill: #ffffff;
+    fill: #fff;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .dc {
+        gap: 30px;
+    }
+
+    .c {
+        padding-bottom: 1.6em;
+    }
+
+    #github-link svg {
+        width: 24px;
+        height: 24px;
+    }
 }
