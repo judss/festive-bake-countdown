@@ -1,69 +1,50 @@
-jQuery(document).ready(function() {    
-    function display_date() {
-        var date_now     = new Date();
-        var year = date_now.getFullYear();
-        var date_festive = new Date(year, 10, 6, 0, 0, 0);
-        if (date_festive <= date_now) {
-            date_festive = new Date(year + 1, 10, 6, 0, 0, 0);
-        }
-        
-        var seconds = ((date_festive - date_now) / 1000);
-        var days    = Math.floor(seconds / 86400).toString();
-        var hours   = Math.floor((seconds - (days * 86400)) / 3600).toString();
-        var minutes = Math.floor((seconds - (days * 86400) - (hours * 3600)) / 60).toString();
-        var seconds = Math.floor((seconds - (days * 86400) - (hours * 3600) - (minutes * 60))).toString();
-        
-        if(days.length < 3) {
-            days = "0" + days;
-        }
-        if(days.length < 3) {
-            days = "0" + days;
-        }
-        
-        if(hours.length < 2) {
-            hours = "0" + hours;
-        }
-        
-        if(minutes.length < 2) {
-            minutes = "0" + minutes;
-        }
-        
-        if(seconds.length < 2) {
-            seconds = "0" + seconds;
-        }
-        
-        var days_split    = days.split('');
-        var hours_split   = hours.split('');
-        var minutes_split = minutes.split('');
-        var seconds_split = seconds.split('');
-        
-        jQuery(".sd1").html('<img src="assets/img/FB_' + days_split[0] + '.png" />');
-        jQuery(".sd2").html('<img src="assets/img/FB_' + days_split[1] + '.png" />');
-        jQuery(".sd3").html('<img src="assets/img/FB_' + days_split[2] + '.png" />');
-        
-        jQuery(".sh1").html('<img src="assets/img/FB_' + hours_split[0] + '.png" />');
-        jQuery(".sh2").html('<img src="assets/img/FB_' + hours_split[1] + '.png" />');
-        
-        jQuery(".sm1").html('<img src="assets/img/FB_' + minutes_split[0] + '.png" />');
-        jQuery(".sm2").html('<img src="assets/img/FB_' + minutes_split[1] + '.png" />');
-        
-        jQuery(".ss1").html('<img src="assets/img/FB_' + seconds_split[0] + '.png" />');
-        jQuery(".ss2").html('<img src="assets/img/FB_' + seconds_split[1] + '.png" />');
+function getTargetDate() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const target = new Date(year, 10, 6);
+    return target <= now ? new Date(year + 1, 10, 6) : target;
+}
 
-        if(minutes == "00" && seconds == "00"){
-            playTurnip();
-        }
-    }
+function pad(value, length) {
+    return String(value).padStart(length, '0');
+}
 
-    function playTurnip(){
-        var turnip = new Audio('assets/turnip.m4a');
-        turnip.loop = false;
-        turnip.play();
+function setDigit(selector, digit) {
+    document.querySelector(selector).innerHTML = `<img src="assets/img/FB_${digit}.png">`;
+}
+
+function updateCountdown() {
+    const totalSeconds = Math.floor((getTargetDate() - new Date()) / 1000);
+
+    const days    = pad(Math.floor(totalSeconds / 86400), 3);
+    const hours   = pad(Math.floor((totalSeconds % 86400) / 3600), 2);
+    const minutes = pad(Math.floor((totalSeconds % 3600) / 60), 2);
+    const seconds = pad(totalSeconds % 60, 2);
+
+    setDigit('.sd1', days[0]);
+    setDigit('.sd2', days[1]);
+    setDigit('.sd3', days[2]);
+
+    setDigit('.sh1', hours[0]);
+    setDigit('.sh2', hours[1]);
+
+    setDigit('.sm1', minutes[0]);
+    setDigit('.sm2', minutes[1]);
+
+    setDigit('.ss1', seconds[0]);
+    setDigit('.ss2', seconds[1]);
+
+    if (minutes === '00' && seconds === '00') {
+        playTurnip();
     }
-    
-    display_date();
-    
-    setInterval(function(){
-        display_date();
-    },1000);
-});
+}
+
+function playTurnip() {
+    const audio = new Audio('assets/turnip.m4a');
+    audio.play();
+}
+
+document.querySelector('.t').addEventListener('click', playTurnip);
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
