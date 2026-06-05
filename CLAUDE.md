@@ -11,7 +11,7 @@ A single-page countdown site to the annual Greggs Festive Bake launch (November 
 - `assets/js/bake.js` — countdown logic. Vanilla JS, no dependencies. Calculates time to next November 6th and swaps digit images every second.
 - `assets/js/fallingsnow_v6.js` — snow animation. Vanilla JS, uses `requestAnimationFrame`.
 - `assets/fonts/` — self-hosted Barlow Condensed (weights 100 and 600, latin subset only).
-- `assets/img/` — digit images (`FB_0.webp` through `FB_9.webp`, `FB_-.webp`) and background (`FB_BG.webp`). All WebP with PNG originals retained as fallbacks.
+- `assets/img/` — digit images (`FB_0.webp` through `FB_9.webp`) and background (`FB_BG.webp`). All WebP with PNG originals retained as fallbacks.
 - `assets/turnip.m4a` — Easter egg audio played automatically when the countdown reaches zero.
 
 ## Key decisions
@@ -26,5 +26,5 @@ A single-page countdown site to the annual Greggs Festive Bake launch (November 
 
 - Month indexing: JavaScript `Date` months are 0-indexed. November = `10`, not `11`.
 - Font preloads in `index.html` require `crossorigin` attribute even though fonts are self-hosted.
-- The `assets/img/FB_Fav.png` favicon is intentionally kept as PNG (favicon WebP support is inconsistent).
+- The favicon is an inline SVG emoji (🎄) in `index.html` — no image file needed.
 - `overflow: hidden` on `body` is intentional — keeps the snow animation from causing scrollbars.

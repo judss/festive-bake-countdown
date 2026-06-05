@@ -30,9 +30,7 @@ assets/
     fallingsnow_v6.js     # Snow animation
   img/
     FB_0.webp – FB_9.webp # Digit images
-    FB_-.webp             # Dash image (placeholder digits)
     FB_BG.webp            # Background image
-    FB_Fav.png            # Favicon
   turnip.m4a              # Easter egg audio
 index.html
 ```
