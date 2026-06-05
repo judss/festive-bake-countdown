@@ -46,7 +46,5 @@ function playTurnip() {
     audio.play();
 }
 
-document.querySelector('.t').addEventListener('click', playTurnip);
-
 updateCountdown();
 setInterval(updateCountdown, 1000);
