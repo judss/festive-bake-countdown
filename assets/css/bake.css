@@ -17,8 +17,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 40px 20px;
+    min-height: 100dvh;
+    padding: calc(40px + env(safe-area-inset-top))
+             calc(20px + env(safe-area-inset-right))
+             calc(40px + env(safe-area-inset-bottom))
+             calc(20px + env(safe-area-inset-left));
 }
 
 /* Max-width content column */
@@ -132,8 +135,8 @@ body {
 /* GitHub link */
 #github-link {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    right: calc(20px + env(safe-area-inset-right));
     opacity: 0.6;
     transition: opacity 0.2s;
     z-index: 1001;
