@@ -73,6 +73,10 @@ body {
     flex: 3;
 }
 
+.countdown-spacer {
+    flex: 1;
+}
+
 /* Row of digit images */
 .digits {
     display: flex;
