@@ -12,7 +12,7 @@ A single-page countdown site to the annual Greggs Festive Bake launch (November 
 - `assets/js/fallingsnow_v6.js` — snow animation. Vanilla JS, uses `requestAnimationFrame`.
 - `assets/fonts/` — self-hosted Barlow Condensed (weights 100 and 600, latin subset only).
 - `assets/img/` — digit images (`FB_0.webp` through `FB_9.webp`, `FB_-.webp`) and background (`FB_BG.webp`). All WebP with PNG originals retained as fallbacks.
-- `assets/turnip.m4a` — audio file, currently unused.
+- `assets/turnip.m4a` — Easter egg audio played automatically when the countdown reaches zero.
 
 ## Key decisions
 
