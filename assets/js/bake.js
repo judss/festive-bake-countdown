@@ -1,3 +1,25 @@
+// --- Easter egg config ---
+// Set enabled: false to disable the hourly turnip sound entirely.
+const EASTER_EGG = {
+    enabled: true,
+    audio: 'assets/turnip.m4a',
+    // plays once per hour, on the hour (minutes and seconds both zero)
+};
+
+function maybePlayEasterEgg(minutes, seconds) {
+    if (EASTER_EGG.enabled && minutes === '00' && seconds === '00') {
+        new Audio(EASTER_EGG.audio).play();
+    }
+}
+// -------------------------
+
+function isFestiveWindow() {
+    const now = new Date();
+    const nov6 = new Date(now.getFullYear(), 10, 6);
+    const jan1 = new Date(now.getFullYear() + 1, 0, 1);
+    return now >= nov6 && now < jan1;
+}
+
 function getTargetDate() {
     const now = new Date();
     const year = now.getFullYear();
@@ -19,7 +41,6 @@ function showFestiveOut() {
     document.querySelectorAll('.dc > .t').forEach(el => el.style.display = 'none');
     document.getElementById('countdown').style.display = 'none';
     document.getElementById('festive-out').style.display = 'block';
-    new Audio('assets/turnip.m4a').play();
     launchConfetti();
 }
 
@@ -70,6 +91,12 @@ function launchConfetti() {
 let countdownInterval;
 
 function updateCountdown() {
+    if (isFestiveWindow()) {
+        clearInterval(countdownInterval);
+        showFestiveOut();
+        return;
+    }
+
     const totalSeconds = Math.floor((getTargetDate() - new Date()) / 1000);
 
     if (totalSeconds <= 0) {
@@ -95,6 +122,8 @@ function updateCountdown() {
 
     setDigit('.ss1', seconds[0]);
     setDigit('.ss2', seconds[1]);
+
+    maybePlayEasterEgg(minutes, seconds);
 }
 
 updateCountdown();
