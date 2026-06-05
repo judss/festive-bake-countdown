@@ -8,7 +8,7 @@ Originally from the official Greggs festive bake website, which had stopped work
 
 - Countdown to November 6th, automatically rolling over each year
 - Falling snow animation
-- Hidden Easter egg — click the text to play a sound
+- Hidden Easter egg
 - GitHub link in the bottom right corner
 
 ## Running locally

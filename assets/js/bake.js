@@ -9,8 +9,10 @@ function pad(value, length) {
     return String(value).padStart(length, '0');
 }
 
+const imgExt = document.createElement('canvas').toDataURL('image/webp').startsWith('data:image/webp') ? 'webp' : 'png';
+
 function setDigit(selector, digit) {
-    document.querySelector(selector).innerHTML = `<img src="assets/img/FB_${digit}.png">`;
+    document.querySelector(selector).innerHTML = `<img src="assets/img/FB_${digit}.${imgExt}">`;
 }
 
 function updateCountdown() {
