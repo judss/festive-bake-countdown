@@ -10,6 +10,7 @@ body {
     background-image: url("../img/FB_BG.png");
     background-size: cover;
     background-position: center center;
+    background-color: #9b0000;
     overflow: hidden;
 }
 
