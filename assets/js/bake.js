@@ -6,7 +6,7 @@ const EASTER_EGG = {
     // plays once per hour, on the hour (minutes and seconds both zero)
 };
 
-function maybePlayEasterEgg(minutes, seconds) {
+function playEasterEgg(minutes, seconds) {
     if (EASTER_EGG.enabled && minutes === '00' && seconds === '00') {
         new Audio(EASTER_EGG.audio).play();
     }
@@ -123,7 +123,7 @@ function updateCountdown() {
     setDigit('.ss1', seconds[0]);
     setDigit('.ss2', seconds[1]);
 
-    maybePlayEasterEgg(minutes, seconds);
+    playEasterEgg(minutes, seconds);
 }
 
 updateCountdown();
